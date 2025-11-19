@@ -103,7 +103,6 @@ h2 {
     width: 100%;
     height: 100vh;
     border-radius: 0;
-    /* ДОБАВЛЕНО: Flex для лучшего центрирования на мобильных */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,23 +112,18 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем min-height, чтобы сердце не было слишком большим */
     min-height: 40vh; 
-    margin-bottom: 20px; /* Отступ от кнопок */
+    margin-bottom: 20px; 
 }
 .cute-heart {
     position: relative;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем размер сердца для лучшей адаптивности */
     width: 180px; 
     height: 180px;
     background: #e63946;
     transform: rotate(-45deg);
     border-radius: 50px;
     box-shadow: 0 0 40px rgba(230, 57, 70, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* Убрал display: flex и центрирование, чтобы p-элементы не конфликтовали */
     text-align: center;
     animation: heart-pulse 1.5s infinite alternate; 
 }
@@ -137,7 +131,6 @@ h2 {
     from { transform: rotate(-45deg) scale(1); }
     to { transform: rotate(-45deg) scale(1.05); }
 }
-/* ИСПРАВЛЕНИЕ: Пересчитываем размеры псевдоэлементов для нового размера сердца (180px) */
 .cute-heart::before, .cute-heart::after {
     content: '';
     position: absolute;
@@ -149,17 +142,36 @@ h2 {
 .cute-heart::before { top: -90px; left: 0; } 
 .cute-heart::after { top: 0; left: 90px; } 
 
-.cute-heart p {
+/* ИСПРАВЛЕНИЕ: Главный текст */
+.cute-heart p:nth-child(1) {
     position: absolute;
     transform: rotate(45deg);
-    color: #000000; /* ЧЕРНЫЙ цвет текста */
+    color: #000000;
     font-weight: bold;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем размер текста внутри сердца */
     font-size: 0.9em; 
     z-index: 10;
     line-height: 1.4;
+    top: 35%; /* Смещаем вниз */
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    white-space: nowrap; /* Гарантируем, что текст не переносится */
 }
-.cute-heart .small-text { margin-top: 30px; font-size: 0.7em; }
+/* ИСПРАВЛЕНИЕ: Дополнительный текст */
+.cute-heart p.small-text { 
+    position: absolute;
+    transform: rotate(45deg);
+    color: #000000;
+    font-weight: normal;
+    font-size: 0.7em; 
+    z-index: 10;
+    line-height: 1.4;
+    top: 60%; /* Располагаем под главным текстом */
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    white-space: nowrap;
+    margin: 0; /* Удаляем лишние margin, которые могли вызвать наложение */
+}
+
 
 /* --- 1.1. СЦЕНА "НЕ УХОДИ" --- */
 #sad-screen { background: #fff0f3; }
@@ -253,9 +265,7 @@ h2 {
 .envelope {
     position: relative;
     width: 90%;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем максимальную ширину конверта */
     max-width: 300px; 
-    /* ИСПРАВЛЕНИЕ: Уменьшаем высоту конверта */
     height: 200px;
     background: #e63946; 
     margin: 30px auto;
@@ -266,7 +276,6 @@ h2 {
     transition: transform 0.5s;
 }
 
-/* ИСПРАВЛЕНИЕ: Пересчитываем размеры клапана для нового размера конверта (300px) */
 .flap {
     position: absolute;
     top: 0;
@@ -283,13 +292,12 @@ h2 {
 
 .letter-text {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%; /* ИСПРАВЛЕНИЕ: Уменьшаем отступ сверху */
+    left: 5%; /* ИСПРАВЛЕНИЕ: Уменьшаем отступ слева/справа */
+    width: 90%; /* ИСПРАВЛЕНИЕ: Увеличиваем ширину */
+    height: 90%; /* ИСПРАВЛЕНИЕ: Увеличиваем высоту */
     background: white;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем внутренние отступы, чтобы текст поместился */
-    padding: 10px; 
+    padding: 5px; /* ИСПРАВЛЕНИЕ: Сильно уменьшаем внутренние отступы */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(100%); 
@@ -297,9 +305,10 @@ h2 {
     text-align: left;
     color: #800020; 
     z-index: 10;
-    /* ИСПРАВЛЕНИЕ: Уменьшаем размер текста письма */
-    font-size: 0.85em; 
-    line-height: 1.3;
+    /* ИСПРАВЛЕНИЕ: Еще уменьшаем размер текста письма */
+    font-size: 0.8em; 
+    line-height: 1.2; /* ИСПРАВЛЕНИЕ: Уменьшаем межстрочный интервал */
+    overflow: auto; /* Добавляем прокрутку на всякий случай, если текст очень длинный */
 }
 
 .envelope.open .flap {
@@ -311,11 +320,12 @@ h2 {
 }
 
 .signature {
-    margin-top: 15px;
+    margin-top: 5px; /* ИСПРАВЛЕНИЕ: Очень маленький отступ, чтобы поместилась */
     font-style: italic;
     font-weight: bold;
     text-align: right;
     color: #e63946;
+    font-size: 0.9em; /* Уменьшаем размер подписи */
 }
 
 /* --- 5. QR-КОД WB --- */
