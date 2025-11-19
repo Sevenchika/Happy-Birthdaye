@@ -41,7 +41,7 @@ h1 {
     margin-bottom: 10px;
 }
 h2 {
-    color: #ef7d7d; /* Темно-бордовый для заголовков */
+    color: #ef7d7d; /* Ваш цвет (сохранен) */
     font-size: 1.8em;
     margin-bottom: 20px;
 }
@@ -75,17 +75,17 @@ h2 {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Для адаптации кнопок на мобильных */
+    flex-wrap: wrap; 
 }
 .button-group .back-button, .button-group .cute-button {
-    margin-top: 10px; /* Отступы между кнопками в группе на мобильных */
+    margin-top: 10px; 
 }
 
 .cute-button:hover, .back-button:hover {
     transform: translateY(-2px);
 }
 .back-button {
-    background: #470909;
+    background: #470909; /* Ваш цвет (сохранен) */
     color: white;
     margin-top: 30px;
     padding: 10px 20px;
@@ -93,7 +93,7 @@ h2 {
     border-radius: 5px;
 }
 .back-button:hover {
-    background: #4d0202;
+    background: #4d0202; /* Ваш цвет (сохранен) */
 }
 
 /* --- 1. СТАРТОВАЯ СЦЕНА (Сердце) --- */
@@ -103,17 +103,25 @@ h2 {
     width: 100%;
     height: 100vh;
     border-radius: 0;
+    /* ДОБАВЛЕНО: Flex для лучшего центрирования на мобильных */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .heart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем min-height, чтобы сердце не было слишком большим */
+    min-height: 40vh; 
+    margin-bottom: 20px; /* Отступ от кнопок */
 }
 .cute-heart {
     position: relative;
-    width: 250px;
-    height: 250px;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем размер сердца для лучшей адаптивности */
+    width: 180px; 
+    height: 180px;
     background: #e63946;
     transform: rotate(-45deg);
     border-radius: 50px;
@@ -129,27 +137,29 @@ h2 {
     from { transform: rotate(-45deg) scale(1); }
     to { transform: rotate(-45deg) scale(1.05); }
 }
+/* ИСПРАВЛЕНИЕ: Пересчитываем размеры псевдоэлементов для нового размера сердца (180px) */
 .cute-heart::before, .cute-heart::after {
     content: '';
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
     background: #e63946;
     border-radius: 50%;
 }
-.cute-heart::before { top: -125px; left: 0; }
-.cute-heart::after { top: 0; left: 125px; }
+.cute-heart::before { top: -90px; left: 0; } 
+.cute-heart::after { top: 0; left: 90px; } 
 
 .cute-heart p {
     position: absolute;
     transform: rotate(45deg);
     color: #000000; /* ЧЕРНЫЙ цвет текста */
     font-weight: bold;
-    font-size: 1.2em;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем размер текста внутри сердца */
+    font-size: 0.9em; 
     z-index: 10;
     line-height: 1.4;
 }
-.cute-heart .small-text { margin-top: 40px; font-size: 0.9em; }
+.cute-heart .small-text { margin-top: 30px; font-size: 0.7em; }
 
 /* --- 1.1. СЦЕНА "НЕ УХОДИ" --- */
 #sad-screen { background: #fff0f3; }
@@ -170,7 +180,7 @@ h2 {
 .gift-button {
     width: 120px;
     height: 120px;
-    background-color: #4c0606;
+    background-color: #4c0606; /* Ваш цвет (сохранен) */
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -210,7 +220,7 @@ h2 {
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: #450a0a; 
+    background-color: #450a0a; /* Ваш цвет (сохранен) */
     margin: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -243,8 +253,10 @@ h2 {
 .envelope {
     position: relative;
     width: 90%;
-    max-width: 400px; 
-    height: 250px;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем максимальную ширину конверта */
+    max-width: 300px; 
+    /* ИСПРАВЛЕНИЕ: Уменьшаем высоту конверта */
+    height: 200px;
     background: #e63946; 
     margin: 30px auto;
     border-radius: 10px;
@@ -254,15 +266,16 @@ h2 {
     transition: transform 0.5s;
 }
 
+/* ИСПРАВЛЕНИЕ: Пересчитываем размеры клапана для нового размера конверта (300px) */
 .flap {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 0;
-    border-left: 200px solid transparent; 
-    border-right: 200px solid transparent; 
-    border-top: 125px solid #c9184a; 
+    border-left: 150px solid transparent; 
+    border-right: 150px solid transparent; 
+    border-top: 100px solid #c9184a; 
     transform-origin: top;
     transition: transform 0.5s ease-out;
     z-index: 5;
@@ -275,7 +288,8 @@ h2 {
     width: 80%;
     height: 80%;
     background: white;
-    padding: 20px;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем внутренние отступы, чтобы текст поместился */
+    padding: 10px; 
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(100%); 
@@ -283,6 +297,9 @@ h2 {
     text-align: left;
     color: #800020; 
     z-index: 10;
+    /* ИСПРАВЛЕНИЕ: Уменьшаем размер текста письма */
+    font-size: 0.85em; 
+    line-height: 1.3;
 }
 
 .envelope.open .flap {
@@ -294,7 +311,7 @@ h2 {
 }
 
 .signature {
-    margin-top: 20px;
+    margin-top: 15px;
     font-style: italic;
     font-weight: bold;
     text-align: right;
@@ -323,7 +340,7 @@ h2 {
 
 /* --- НОВАЯ 6. ФИНАЛЬНАЯ СЦЕНА --- */
 #end-screen {
-    background: #e66161; /* Яркий, радостный фон */
+    background: #e66161; /* Ваш цвет (сохранен) */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 .end-content {
@@ -334,10 +351,10 @@ h2 {
     padding: 20px;
 }
 .happy-cat-img {
-    width: 180px; /* Размер котика */
+    width: 180px; 
     height: auto;
     margin-bottom: 20px;
-    animation: floating-cat 3s infinite ease-in-out; /* Анимация "парения" */
+    animation: floating-cat 3s infinite ease-in-out; 
 }
 @keyframes floating-cat {
     0% { transform: translateY(0); }
@@ -345,12 +362,12 @@ h2 {
     100% { transform: translateY(0); }
 }
 #end-screen h3 {
-    color: #e63946; /* Красный для главного сообщения */
+    color: #e63946; 
     font-size: 2em;
     margin-bottom: 10px;
 }
 #end-screen p {
-    color: #800020; /* Темно-бордовый для дополнительного текста */
+    color: #800020; 
     font-size: 1.1em;
     line-height: 1.5;
 }
