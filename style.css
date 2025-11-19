@@ -134,15 +134,21 @@ h2 {
 .cute-heart::before, .cute-heart::after {
     content: '';
     position: absolute;
-    width: 180px !important;
+    /* Устанавливаем размер кругов строго равным размеру сердца (180px) */
+    width: 180px !important; 
     height: 180px !important;
     background: #e63946;
     border-radius: 50%;
 }
-.cute-heart::before { top: -90px !important; left: 0; } 
-.cute-heart::after { top: 0; left: 90px !important; }
-
-/* ИСПРАВЛЕНИЕ: Главный текст */
+/* Позиционируем круги */
+.cute-heart::before { 
+    top: -90px !important; /* Ровно половина высоты (180/2) */
+    left: 0; 
+} 
+.cute-heart::after { 
+    top: 0; 
+    left: 90px !important; /* Ровно половина ширины (180/2) */
+}
 /* ИСПРАВЛЕНИЕ: Главный текст */
 .cute-heart p:nth-child(1) {
     position: absolute;
@@ -381,4 +387,5 @@ h2 {
     font-size: 1.1em;
     line-height: 1.5;
 }
+
 
