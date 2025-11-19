@@ -117,15 +117,15 @@ h2 {
 }
 .cute-heart {
     position: relative;
-    width: 180px; 
-    height: 180px;
+    width: 180px !important; /* Уменьшаем размер и принуждаем */
+    height: 180px !important;
     background: #e63946;
     transform: rotate(-45deg);
     border-radius: 50px;
     box-shadow: 0 0 40px rgba(230, 57, 70, 0.8);
-    /* Убрал display: flex и центрирование, чтобы p-элементы не конфликтовали */
     text-align: center;
     animation: heart-pulse 1.5s infinite alternate; 
+}
 }
 @keyframes heart-pulse {
     from { transform: rotate(-45deg) scale(1); }
@@ -134,27 +134,28 @@ h2 {
 .cute-heart::before, .cute-heart::after {
     content: '';
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 180px !important;
+    height: 180px !important;
     background: #e63946;
     border-radius: 50%;
 }
-.cute-heart::before { top: -90px; left: 0; } 
-.cute-heart::after { top: 0; left: 90px; } 
+.cute-heart::before { top: -90px !important; left: 0; } 
+.cute-heart::after { top: 0; left: 90px !important; }
 
+/* ИСПРАВЛЕНИЕ: Главный текст */
 /* ИСПРАВЛЕНИЕ: Главный текст */
 .cute-heart p:nth-child(1) {
     position: absolute;
     transform: rotate(45deg);
     color: #000000;
     font-weight: bold;
-    font-size: 0.9em; 
+    font-size: 0.8em !important; /* Еще меньше шрифт */
     z-index: 10;
-    line-height: 1.4;
-    top: 35%; /* Смещаем вниз */
+    line-height: 1.2 !important; 
+    top: 30% !important; /* Смещаем выше */
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    white-space: nowrap; /* Гарантируем, что текст не переносится */
+    white-space: nowrap; 
 }
 /* ИСПРАВЛЕНИЕ: Дополнительный текст */
 .cute-heart p.small-text { 
@@ -162,14 +163,14 @@ h2 {
     transform: rotate(45deg);
     color: #000000;
     font-weight: normal;
-    font-size: 0.7em; 
+    font-size: 0.6em !important; /* Самый мелкий шрифт */
     z-index: 10;
-    line-height: 1.4;
-    top: 60%; /* Располагаем под главным текстом */
+    line-height: 1.2 !important; 
+    top: 65% !important; /* Смещаем ниже */
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
     white-space: nowrap;
-    margin: 0; /* Удаляем лишние margin, которые могли вызвать наложение */
+    margin: 0; 
 }
 
 
@@ -292,12 +293,12 @@ h2 {
 
 .letter-text {
     position: absolute;
-    top: 5%; /* ИСПРАВЛЕНИЕ: Уменьшаем отступ сверху */
-    left: 5%; /* ИСПРАВЛЕНИЕ: Уменьшаем отступ слева/справа */
-    width: 90%; /* ИСПРАВЛЕНИЕ: Увеличиваем ширину */
-    height: 90%; /* ИСПРАВЛЕНИЕ: Увеличиваем высоту */
+    top: 3% !important; /* Уменьшаем отступ сверху */
+    left: 3% !important; /* Уменьшаем отступ слева/справа */
+    width: 94% !important; /* Увеличиваем рабочую ширину */
+    height: 94% !important; /* Увеличиваем рабочую высоту */
     background: white;
-    padding: 5px; /* ИСПРАВЛЕНИЕ: Сильно уменьшаем внутренние отступы */
+    padding: 3px !important; /* Минимальные внутренние отступы */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(100%); 
@@ -305,10 +306,9 @@ h2 {
     text-align: left;
     color: #800020; 
     z-index: 10;
-    /* ИСПРАВЛЕНИЕ: Еще уменьшаем размер текста письма */
-    font-size: 0.8em; 
-    line-height: 1.2; /* ИСПРАВЛЕНИЕ: Уменьшаем межстрочный интервал */
-    overflow: auto; /* Добавляем прокрутку на всякий случай, если текст очень длинный */
+    font-size: 0.75em !important; /* Самый мелкий шрифт */
+    line-height: 1.1 !important; /* Минимальный интервал */
+    overflow: auto; 
 }
 
 .envelope.open .flap {
@@ -320,12 +320,12 @@ h2 {
 }
 
 .signature {
-    margin-top: 5px; /* ИСПРАВЛЕНИЕ: Очень маленький отступ, чтобы поместилась */
+    margin-top: 3px !important; /* Минимальный отступ */
     font-style: italic;
     font-weight: bold;
     text-align: right;
     color: #e63946;
-    font-size: 0.9em; /* Уменьшаем размер подписи */
+    font-size: 0.8em !important; /* Еще меньше размер подписи */
 }
 
 /* --- 5. QR-КОД WB --- */
@@ -381,3 +381,4 @@ h2 {
     font-size: 1.1em;
     line-height: 1.5;
 }
+
