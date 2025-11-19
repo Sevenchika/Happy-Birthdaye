@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения! 🎉</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <audio id="background-audio" src="happy_song.mp3" loop></audio>
+
+    <div id="start-screen" class="screen active">
+        <div class="heart-container">
+            <div class="cute-heart">
+                <p>С ДНЕМ РОЖДЕНИЯ!</p>
+                <p class="small-text">у меня для тебя подарки, готова увидеть?</p>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="cute-button" id="btn-ready">ГОТОВА</button>
+            <button class="cute-button negative" id="btn-not-ready">НЕТ</button>
+        </div>
+    </div>
+    
+    <div id="sad-screen" class="screen">
+        <div class="sad-content">
+            <span class="sad-icon">😿</span> <h3>О неет, не уходи, пожалуйста!</h3>
+            <p>Посмотри, что я приготовила! Тебе точно понравится.</p>
+            <button class="cute-button" id="btn-back-to-start">Вернуться</button>
+        </div>
+    </div>
+
+
+    <div id="gifts-screen" class="screen">
+        <h2>У меня для тебя **три подарка**!</h2>
+        <div class="gift-container">
+            <div class="gift-button" data-target="gallery-screen">
+                <span class="icon">🖼️</span>Фото-Воспоминания
+            </div>
+            <div class="gift-button" data-target="wish-screen">
+                <span class="icon">💌</span>Секретное Пожелание
+            </div>
+            <div class="gift-button" data-target="barcode-screen">
+                <span class="icon">🎁</span>Главный Сюрприз
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-screen" class="screen">
+        <h2>🎁 Подарок 1: Галерея Воспоминаний</h2>
+        <p>Наши лучшие моменты по трем направлениям!</p>
+        <div id="gallery-content">
+            <div class="photo-row row-1">
+                <img src="photo1.jpg" alt="Photo 1" class="row-photo p1">
+                <img src="photo2.jpg" alt="Photo 2" class="row-photo p2">
+                <img src="photo3.jpg" alt="Photo 3" class="row-photo p3">
+            </div>
+             <div class="photo-row row-2">
+                <img src="photo4.jpg" alt="Photo 4" class="row-photo p4">
+                <img src="photo5.jpg" alt="Photo 5" class="row-photo p5">
+                <img src="photo6.jpg" alt="Photo 6" class="row-photo p6">
+            </div>
+            <div class="photo-row row-3">
+                <img src="photo7.jpg" alt="Photo 7" class="row-photo p7">
+                <img src="photo8.jpg" alt="Photo 8" class="row-photo p8">
+                <img src="photo9.jpg" alt="Photo 9" class="row-photo p9">
+            </div>
+        </div>
+        <button class="back-button" data-target="gifts-screen">← Назад к подаркам</button>
+    </div>
+
+    <div id="wish-screen" class="screen">
+        <h2>🎁 Подарок 2: Тёплое Послание</h2>
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="letter-text">
+                <p>Дорогая/Дорогой **[ИМЯ]**!</p>
+                <p>Поздравляю тебя с этим замечательным днем! Ты — свет, радость и вдохновение для меня. Желаю тебе, чтобы каждый твой день был наполнен смехом, любовью и самыми теплыми моментами. Пусть все твои мечты сбываются, а глаза сияют от счастья! Оставайся таким/такой же прекрасным/ой!</p>
+                <p class="signature">С любовью, [Твое имя]</p>
+            </div>
+        </div>
+        <button class="back-button" data-target="gifts-screen">← Назад к подаркам</button>
+    </div>
+
+    <div id="barcode-screen" class="screen">
+        <h2>🎁 Подарок 3: Сюрприз из WB</h2>
+        <p>Просто покажи этот QR-код сотруднику пункта выдачи, чтобы забрать свой подарок!</p>
+        <div id="barcode-content">
+            <div class="barcode-display">
+                <img src="wb_qr.jpg" alt="QR-код Wildberries" class="wb-qr-code">
+                <h3 style="color: #800020; margin-top: 15px;">Твой подарок ждет тебя!</h3>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="back-button" data-target="gifts-screen">← Назад к подаркам</button>
+            <button class="cute-button" id="btn-to-end-screen" style="margin-left: 10px;">К Концу ✨</button>
+        </div>
+    </div>
+
+    <div id="end-screen" class="screen">
+        <div class="end-content">
+            <img src="C:\Users\User\Downloads\Gemini_Generated_Image_odcsl7odcsl7odcs.png" alt="Радостный котик" class="happy-cat-img"> 
+            <h3>Спасибо, что ты есть в моей жизни! ❤️</h3>
+            <p>Ты делаешь каждый мой день ярче и счастливее. Целую!</p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
